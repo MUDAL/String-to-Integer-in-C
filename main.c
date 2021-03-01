@@ -3,7 +3,7 @@
 #include <stdint.h>
 #include <string.h>
 
-//Trivial hash table
+//lookup table
 const uint32_t powerOfTen[5] = {1, 10, 100, 1000, 10000};
 
 uint32_t String_To_Integer(char* pBuffer)
