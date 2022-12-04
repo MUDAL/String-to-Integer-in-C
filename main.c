@@ -3,9 +3,6 @@
 #include <stdint.h>
 #include <string.h>
 
-//lookup table
-const uint32_t powerOfTen[5] = {1, 10, 100, 1000, 10000};
-
 uint32_t String_To_Integer(char* pBuffer)
 {
   /*
@@ -22,15 +19,17 @@ uint32_t String_To_Integer(char* pBuffer)
   */
   uint32_t integer = 0;
   uint8_t bufferLength = strlen(pBuffer);
+  uint32_t j = 1;
   for (uint8_t i = 0; i < bufferLength; i++)
   {
-    integer += ( (pBuffer[i] - '0') * powerOfTen[bufferLength - i - 1] );
+    integer += ((pBuffer[bufferLength - i - 1] - '0') * j);
+    j *= 10;
   }
   return integer;
 }
 
 int main()
 {
-    printf("%d\n",String_To_Integer("98351"));
+    printf("%d\n",String_To_Integer("751"));
     return 0;
 }
